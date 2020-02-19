@@ -11,8 +11,9 @@ contract DevToken {
     event Transfer(address indexed _from, address indexed _to, uint _amount);
     event Approval(address indexed _owner, address indexed _spender, uint _amount);
 
-    constructor (uint256 _supply) public {
-        totalSupply = _supply;
+    constructor (uint256 _initialSupply) public {
+        balanceOf[msg.sender] = _initialSupply;
+        totalSupply = _initialSupply;
     }
 
     function transfer(address _to, uint _amount) public returns (bool) {
